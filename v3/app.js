@@ -34,7 +34,7 @@ app.use(function(req,res,next){
 var campgroundSchema    =    new mongoose.Schema({
     name:    String,
     image:   String,
-    description: String
+    d: String
 });
 
 var Campground  =    mongoose.model("Campground" , campgroundSchema);
@@ -64,8 +64,8 @@ var Campground  =    mongoose.model("Campground" , campgroundSchema);
 app.post("/campgrounds", function(req,res){
     var name = req.body.name;
     var image = req.body.image;
-    var description = req.body.desc;
-    var newCampground = {name:name , image:image ,description:description};
+    var d = req.body.d;
+    var newCampground = {name:name , image:image ,d:d};
     Campground.create(newCampground,function(err, newlyCreated){
         if(err){
             console.log(err);
