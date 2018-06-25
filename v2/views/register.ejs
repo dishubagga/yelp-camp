@@ -1,6 +1,6 @@
 <% include partials/header %>
 <h1 class="jumbotron" align="center">Sign Up</h1>
-<form action="/register" method="post">
+<form action="/register" method="post" name="myForm" onclick="validateForm()">
     <div style="width:30% ;margin:25px auto; ">
             <div class="form-group">
                 <input class="form-control" type="text" name="username" placeholder="name">    
@@ -13,4 +13,13 @@
             </div>    
         </form>
 </form>
+<script>
+    function validateForm() {
+        var x = document.forms["myForm"]["username"].value;
+        if (x != "") {
+            alert("success");
+            return false;
+        }
+    }
+</script>
 <% include partials/footer %>
